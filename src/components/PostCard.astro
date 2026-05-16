@@ -1,0 +1,15 @@
+---
+interface Props {
+  post: any;
+}
+const { post } = Astro.props;
+const date = post.data.pubDate.toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<a class="post-card" href={`/blog/${post.id}/`}>
+  <div class="meta">{date}</div>
+  <h3>{post.data.title}</h3>
+  <p>{post.data.description}</p>
+  <div class="tags" aria-label="Tags">
+    {post.data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+  </div>
+</a>
