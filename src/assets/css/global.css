@@ -165,17 +165,17 @@ svg {
 }
 
 main {
-  padding: 64px 0 96px;
+  padding: 44px 0 96px;
 }
 
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 32px;
   align-items: center;
-  justify-content: center;
-  min-height: 72vh;
-  padding-bottom: 54px;
+  justify-content: flex-start;
+  min-height: auto;
+  padding: 42px 0 54px;
 }
 
 .hero-copy {
@@ -634,13 +634,18 @@ p {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .js [data-reveal] {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 520ms ease, transform 520ms ease;
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
   }
 
-  .js [data-reveal].is-visible {
+  .js.reveal-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 360ms ease, transform 360ms ease;
+  }
+
+  .js.reveal-ready [data-reveal].is-visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -648,7 +653,7 @@ p {
 
 @media (max-width: 940px) {
   main {
-    padding-top: 44px;
+    padding-top: 24px;
   }
 
   .split-section,
@@ -658,7 +663,8 @@ p {
   }
 
   .hero {
-    min-height: 0;
+    gap: 24px;
+    padding: 20px 0 44px;
   }
 
   .hero-copy {
@@ -706,16 +712,40 @@ p {
   }
 
   .nav {
-    align-items: flex-start;
-    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
   }
 
   .nav-links {
     justify-content: flex-start;
+    gap: 2px;
+  }
+
+  .nav-links a {
+    font-size: 0.88rem;
+    padding: 6px 8px;
+  }
+
+  .hero {
+    align-items: flex-start;
+    padding-top: 8px;
+  }
+
+  .hero-copy {
+    text-align: left;
+  }
+
+  .hero-lede {
+    margin-inline: 0;
+  }
+
+  .actions {
+    justify-content: flex-start;
+    margin-top: 22px;
   }
 
   h1 {
-    font-size: 3.8rem;
+    font-size: 3.7rem;
   }
 
   h2,
