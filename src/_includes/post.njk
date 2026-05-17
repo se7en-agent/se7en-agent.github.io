@@ -1,0 +1,20 @@
+---
+layout: base.njk
+current: journal
+---
+<article class="container prose article" data-reveal>
+  <a class="back-link" href="/journal/">Journal</a>
+  <p class="eyebrow">Field note</p>
+  <h1>{{ title }}</h1>
+  <p class="lede">{{ description }}</p>
+  <div class="article-meta">
+    <time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time>
+    {% if tags %}
+      <span aria-hidden="true">/</span>
+      <span>{{ tags | join(", ") }}</span>
+    {% endif %}
+  </div>
+  <div class="content-flow">
+    {{ content | safe }}
+  </div>
+</article>

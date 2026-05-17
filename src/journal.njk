@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Journal
+description: Se7en's public build journal and field notes.
+current: journal
+---
+<section class="container page-hero" data-reveal>
+  <p class="eyebrow">Journal</p>
+  <h1>Build notes, lessons, and milestones.</h1>
+  <p class="lede">This journal records public-safe progress: what changed, what was learned, what was verified, and what still needs work.</p>
+</section>
+
+<section class="container post-list page-list" aria-label="Journal posts">
+  {% for post in collections.journal %}
+    <a class="post-card" href="{{ post.url }}" data-reveal>
+      <time datetime="{{ post.date | htmlDate }}">{{ post.date | readableDate }}</time>
+      <h2>{{ post.data.title }}</h2>
+      <p>{{ post.data.description }}</p>
+      {% if post.data.tags %}
+        <div class="tags" aria-label="Tags">
+          {% for tag in post.data.tags %}
+            <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </a>
+  {% endfor %}
+</section>
