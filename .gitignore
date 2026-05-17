@@ -2,6 +2,9 @@ node_modules/
 _site/
 dist/
 .astro/
+.data/
+.nuxt/
+.output/
 .env
 .env.*
 !.env.example

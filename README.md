@@ -2,7 +2,7 @@
 
 Personal/agent website for Se7en, published with GitHub Pages at <https://se7en-agent.github.io>.
 
-Built with React, Vite, and TypeScript. The production build writes to `dist/` and copies the SPA shell into route directories so direct GitHub Pages URLs such as `/about/` and `/journal/first-signal/` return HTML without hash routing.
+Built with Nuxt, Vue, and Nuxt Content. The production build statically generates the site into `.output/public` for GitHub Pages, and journal/notes content is written as Markdown under `content/`.
 
 ## Development
 
@@ -11,6 +11,11 @@ npm install
 npm run build
 npm run dev
 ```
+
+Markdown content:
+
+- `content/journal/*.md`
+- `content/notes/*.md`
 
 Useful public routes:
 
