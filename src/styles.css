@@ -74,8 +74,10 @@ svg {
   z-index: -1;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 8%, rgba(108, 77, 255, 0.19), transparent 28rem),
-    linear-gradient(180deg, #050713 0%, #080b1a 56%, #090d1c 100%);
+    radial-gradient(circle at 50% 10%, rgba(98, 134, 255, 0.2), transparent 26rem),
+    radial-gradient(circle at 18% 24%, rgba(0, 224, 255, 0.12), transparent 22rem),
+    radial-gradient(circle at 82% 18%, rgba(173, 140, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, #030510 0%, #070a18 48%, #090d1c 100%);
 }
 
 .scene::after {
@@ -83,8 +85,8 @@ svg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at center, transparent 0%, transparent 32%, rgba(5, 7, 19, 0.42) 74%, rgba(5, 7, 19, 0.9) 100%),
-    linear-gradient(180deg, transparent 0%, rgba(5, 7, 19, 0.2) 48%, rgba(5, 7, 19, 0.84) 100%);
+    radial-gradient(ellipse at center, transparent 0%, transparent 42%, rgba(5, 7, 19, 0.5) 82%, rgba(5, 7, 19, 0.92) 100%),
+    linear-gradient(180deg, rgba(5, 7, 19, 0.08) 0%, rgba(5, 7, 19, 0.08) 44%, rgba(5, 7, 19, 0.88) 100%);
 }
 
 .stars,
@@ -97,16 +99,16 @@ svg {
 }
 
 .stars-a {
-  opacity: 0.78;
+  opacity: 0.9;
   background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.6px),
-    radial-gradient(circle, rgba(102, 217, 255, 0.75) 0 1px, transparent 1.8px);
-  background-size: 112px 112px, 176px 176px;
+    radial-gradient(circle, rgba(255, 255, 255, 0.98) 0 1px, transparent 1.7px),
+    radial-gradient(circle, rgba(102, 217, 255, 0.8) 0 1px, transparent 1.9px);
+  background-size: 104px 104px, 172px 172px;
   background-position: 16px 22px, 60px 74px;
 }
 
 .stars-b {
-  opacity: 0.42;
+  opacity: 0.52;
   filter: blur(0.2px);
   background-image:
     radial-gradient(circle, rgba(255, 255, 255, 0.82) 0 1px, transparent 1.6px),
@@ -149,12 +151,12 @@ svg {
 .grid-horizon {
   position: absolute;
   left: 50%;
-  bottom: -12rem;
-  width: min(86rem, 120vw);
-  height: 32rem;
+  bottom: -10rem;
+  width: min(96rem, 130vw);
+  height: 34rem;
   transform: translateX(-50%) perspective(540px) rotateX(62deg);
   transform-origin: center top;
-  opacity: 0.22;
+  opacity: 0.26;
   background-image:
     linear-gradient(rgba(102, 217, 255, 0.34) 1px, transparent 1px),
     linear-gradient(90deg, rgba(173, 140, 255, 0.24) 1px, transparent 1px);
@@ -252,34 +254,58 @@ main {
 }
 
 .hero {
+  position: relative;
   display: grid;
   place-items: center;
-  min-height: calc(100vh - 4.2rem);
-  padding: 4.8rem 0 5rem;
-}
-
-.hero-shell {
-  position: relative;
-  width: min(920px, 100%);
+  min-height: calc(100svh - 4.2rem);
   overflow: hidden;
-  border: 1px solid rgba(181, 199, 255, 0.18);
-  border-radius: 2.1rem;
-  background:
-    linear-gradient(140deg, rgba(102, 217, 255, 0.14), transparent 36%),
-    linear-gradient(225deg, rgba(173, 140, 255, 0.18), transparent 42%),
-    rgba(8, 12, 28, 0.72);
-  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  padding: 4.4rem 3.2rem 2.4rem;
+  padding: clamp(4.8rem, 9vh, 7rem) 0 clamp(4rem, 8vh, 6rem);
   text-align: center;
+  isolation: isolate;
 }
 
-.hero-shell::before {
+.hero::before,
+.hero::after {
   content: "";
   position: absolute;
-  inset: 1px;
+  pointer-events: none;
   z-index: -1;
-  border-radius: inherit;
-  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.1), transparent 22rem);
+}
+
+.hero::before {
+  width: min(54rem, 92vw);
+  height: min(54rem, 92vw);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(102, 217, 255, 0.16) 18%, rgba(134, 97, 255, 0.12) 36%, transparent 66%);
+  filter: blur(4px);
+  transform: translateY(-3rem);
+}
+
+.hero::after {
+  inset: auto 0 -8rem;
+  height: 22rem;
+  background:
+    radial-gradient(ellipse at 50% 10%, rgba(102, 217, 255, 0.16), transparent 48%),
+    linear-gradient(180deg, transparent, rgba(5, 7, 19, 0.58) 46%, rgba(5, 7, 19, 0.95));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+}
+
+.hero-content::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -5rem;
+  width: 1px;
+  height: 7rem;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent, rgba(102, 217, 255, 0.64), transparent);
+  box-shadow: 0 0 36px rgba(102, 217, 255, 0.44);
 }
 
 .eyebrow {
@@ -309,7 +335,7 @@ h3 {
 
 h1 {
   margin-bottom: 1.1rem;
-  font-size: 7rem;
+  font-size: 7.6rem;
   font-weight: 700;
   letter-spacing: -0.08em;
 }
@@ -342,7 +368,7 @@ p {
 
 .hero-lede,
 .page-lede {
-  max-width: 760px;
+  max-width: 780px;
   margin-inline: auto;
   color: #dfe7fb;
   font-size: 1.32rem;
@@ -394,18 +420,20 @@ p {
 .identity-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  margin: 2.6rem 0 0;
-  border: 1px solid var(--line);
-  border-radius: 1.25rem;
-  background: rgba(181, 199, 255, 0.12);
+  gap: 0.75rem;
+  max-width: 860px;
+  margin: 2.7rem auto 0;
+  padding: 0;
 }
 
 .identity-strip div {
   min-width: 0;
-  background: rgba(5, 7, 19, 0.42);
-  padding: 1rem;
+  border: 1px solid rgba(181, 199, 255, 0.18);
+  border-radius: 1.1rem;
+  background: rgba(5, 8, 22, 0.38);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 18px 50px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(16px);
+  padding: 0.95rem 1rem;
 }
 
 .identity-strip dt {
@@ -703,16 +731,17 @@ p {
 
 @media (max-width: 980px) {
   .hero {
-    min-height: auto;
-    padding-top: 3rem;
+    min-height: calc(100svh - 4.2rem);
+    padding-top: 4rem;
   }
 
-  .hero-shell {
-    padding: 3.4rem 2rem 2rem;
+  .hero-content::before {
+    top: -4.4rem;
+    height: 6rem;
   }
 
   h1 {
-    font-size: 5.6rem;
+    font-size: 5.8rem;
   }
 
   h2,
@@ -756,15 +785,15 @@ p {
   }
 
   .hero {
-    place-items: start;
-    min-height: calc(100vh - 6.5rem);
-    padding: 1.2rem 0 2.3rem;
+    place-items: center;
+    min-height: calc(100svh - 7.1rem);
+    padding: 2.3rem 0 2.9rem;
+    text-align: center;
   }
 
-  .hero-shell {
-    border-radius: 1.45rem;
-    padding: 2.2rem 1.1rem 1.1rem;
-    text-align: left;
+  .hero-content::before {
+    top: -3.1rem;
+    height: 4rem;
   }
 
   h1 {
@@ -782,15 +811,16 @@ p {
   }
 
   .hero-lede {
-    margin-inline: 0;
+    margin-inline: auto;
   }
 
   .hero-actions {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .button {
-    width: 100%;
+    width: auto;
+    min-width: 10.4rem;
   }
 
   .identity-strip,
@@ -800,8 +830,14 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .identity-strip {
+    max-width: 24rem;
+    gap: 0.55rem;
+    margin-top: 1.8rem;
+  }
+
   .identity-strip div {
-    padding: 0.85rem;
+    padding: 0.75rem;
   }
 
   .signal-panel,

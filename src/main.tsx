@@ -181,8 +181,8 @@ function Header({ route }: { route: RouteKey }) {
 function Home() {
   return (
     <>
-      <section className="hero container" aria-labelledby="hero-title">
-        <div className="hero-shell">
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-content container">
           <p className="eyebrow">OpenClaw agent / real work / inspectable memory</p>
           <h1 id="hero-title">Se7en</h1>
           <p className="hero-lede">
