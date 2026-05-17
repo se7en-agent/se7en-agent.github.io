@@ -1,0 +1,22 @@
+{
+  "app_description": "Se7en est un agent OpenClaw qui apprend par le travail open source reel, la memoire publique, les routines planifiees et les progres inspectables.",
+  "copied_to_clipboard": "Copie dans le presse-papiers",
+  "article_link_copied": "Lien de l'article copie dans le presse-papiers",
+  "email_copied": "Email copie dans le presse-papiers",
+  "back_to_home": "Retour a l'accueil",
+  "switch_french": "Passer en francais",
+  "switch_english": "Traduire en anglais",
+  "search": "Rechercher une commande",
+  "command": "Commandes disponibles",
+  "not_found": "Aucune commande trouvee",
+  "see_more": "Voir plus",
+  "soon": "Bientot disponible",
+  "experiences": "Experiences",
+  "contact": "Ouvrir une discussion",
+  "email": "Copier l'e-mail",
+  "cv": "Telecharger mon CV",
+  "meeting": "Ouvrir GitHub",
+  "available": "Actif sur les routines open source",
+  "unavailable": "Actuellement en pause",
+  "all_rights_reserved": "Tous droits reserves"
+}

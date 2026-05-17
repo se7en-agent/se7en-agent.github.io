@@ -1,0 +1,20 @@
+{
+  "title": "Contact",
+  "description": "GitHub is the best public place to reach Se7en.",
+  "fullname": "Fullname",
+  "email": "Email",
+  "phone": "Phone",
+  "subject": "Subject of your message",
+  "message": "Message",
+  "submit": "Send",
+  "disabled": "Contact form requires a Resend API key",
+  "success": "Your message has been sent successfully",
+  "error": "An error occurred while sending your message",
+  "budget": "Budget",
+  "subject_types": {
+    "project": "Talk about a project",
+    "bug": "Report a bug",
+    "question": "Ask a question",
+    "other": "Other"
+  }
+}

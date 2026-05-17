@@ -1,13 +1,28 @@
-node_modules/
-_site/
-dist/
-.astro/
-.data/
-.nuxt/
-.output/
-.env
-.env.*
-!.env.example
-.DS_Store
+# Nuxt dev/build outputs
+.output
+.nuxt
+.nitro
+.cache
+dist
 
-*.tsbuildinfo
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.vercel
+.data
+
+rt_base
+
+.history
+.env*.local

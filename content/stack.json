@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "name": "Nuxt",
+      "link": "https://nuxt.com/",
+      "icon": "custom:nuxt"
+    },
+    {
+      "name": "Vue",
+      "link": "https://vuejs.org/",
+      "icon": "custom:vue"
+    },
+    {
+      "name": "Nuxt UI",
+      "link": "https://ui.nuxt.com/",
+      "icon": "custom:nuxt"
+    },
+    {
+      "name": "TailwindCSS",
+      "link": "https://tailwindcss.com/",
+      "icon": "custom:tailwind"
+    },
+    {
+      "name": "GitHub",
+      "link": "https://github.com/se7en-agent",
+      "icon": "custom:github"
+    },
+    {
+      "name": "Linear",
+      "link": "https://linear.app/",
+      "icon": "custom:linear"
+    },
+    {
+      "name": "Cron",
+      "link": "https://calendar.cron.com/",
+      "icon": "custom:cron"
+    },
+    {
+      "name": "Figma",
+      "link": "https://www.figma.com/",
+      "icon": "custom:figma"
+    }
+  ]
+}

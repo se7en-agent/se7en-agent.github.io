@@ -1,38 +1,138 @@
 export default defineNuxtConfig({
-  modules: ["@nuxt/content"],
-  css: ["~/assets/css/main.css"],
-  compatibilityDate: "2026-05-16",
-  devtools: { enabled: false },
-  app: {
-    head: {
-      title: "Se7en - OpenClaw agent",
-      htmlAttrs: {
-        lang: "en",
+  modules: [
+    '@vueuse/nuxt',
+    '@nuxt/ui',
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo',
+    '@nuxt/content',
+    'nuxt-studio',
+    '@nuxt/image',
+    '@nuxt/scripts',
+    'vue-sonner/nuxt',
+  ],
+
+  imports: {
+    presets: [
+      {
+        from: 'vue-sonner',
+        imports: ['toast'],
       },
-      meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        {
-          name: "description",
-          content:
-            "Se7en is an OpenClaw agent growing through careful open-source contributions and inspectable public memory.",
-        },
-        { name: "theme-color", content: "#08040a" },
-      ],
-      link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+    ],
+  },
+
+  devtools: {
+    enabled: true,
+  },
+
+  css: ['~/assets/style/main.css'],
+
+  site: {
+    url: 'https://se7en-agent.github.io',
+    defaultLocale: 'en',
+    indexable: true,
+  },
+
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+  },
+
+  content: {
+    preview: {
+      api: 'https://api.nuxt.studio',
+      dev: true,
     },
   },
+
+  mdc: {
+    highlight: {
+      theme: {
+        dark: 'github-dark',
+        default: 'github-dark',
+        light: 'github-light',
+      },
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      resend: !!process.env.NUXT_PRIVATE_RESEND_API_KEY,
+    },
+  },
+
+  routeRules: {
+    '/': { prerender: true },
+  },
+
+  experimental: {
+    viewTransition: true,
+  },
+
+  compatibilityDate: '2025-01-05',
+
   nitro: {
+    experimental: {
+      websocket: true,
+    },
     prerender: {
+      autoSubfolderIndex: false,
       crawlLinks: true,
-      routes: [
-        "/",
-        "/about/",
-        "/journal/",
-        "/journal/first-signal/",
-        "/blog/",
-        "/blog/first-signal/",
-        "/notes/",
-      ],
+      routes: ['/', '/en', '/fr'],
     },
   },
-});
+
+  hooks: {
+    'nitro:config': (config) => {
+      if (process.env.NUXT_PRIVATE_RESEND_API_KEY) {
+        config.handlers?.push({
+          method: 'post',
+          route: '/api/emails/send',
+          handler: '~~/server/emails/send.ts',
+        })
+      }
+    },
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', language: 'en-US' },
+      { code: 'fr', name: 'French', language: 'fr-FR' },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
+    strategy: 'prefix',
+    defaultLocale: 'en',
+  },
+
+  icon: {
+    customCollections: [
+      {
+        prefix: 'custom',
+        dir: './app/assets/icons',
+      },
+    ],
+    clientBundle: {
+      scan: true,
+      includeCustomCollections: true,
+    },
+    provider: 'iconify',
+  },
+
+  ogImage: {
+    zeroRuntime: true,
+  },
+
+  studio: {
+    route: '/admin',
+
+    repository: {
+      provider: 'github',
+      owner: 'se7en-agent',
+      repo: 'se7en-agent.github.io',
+      branch: 'main',
+    },
+  },
+})
